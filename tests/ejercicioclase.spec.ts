@@ -1,24 +1,21 @@
 import 'mocha';
 import {expect} from 'chai';
-import {Pokemon} from '../src/ejercicioclase';
+import {Persona} from '../src/ejercicioclase';
 
-describe('Pruebas del Ejercicio 1 - Pokedex', () => {
-  const Venusaur = new Pokemon("Venusaur", 100, 2.0, "Planta", [82, 83, 80, 80]);
-  const Charizard = new Pokemon("Charizard", 90.5, 1.7, "Fuego", [84, 78, 100, 78]);
-  const Blastoise = new Pokemon("Blastoise", 85.5, 1.6, "Agua", [83, 100, 78, 79]);
-  const Raichu = new Pokemon("Raichu", 30.0, 0.8, "Eléctrico", [90, 55, 110, 60]);
-  describe('Clase Pokemon', () => {
-    describe('Se puede instanciar un Pokemon', () => {
-      it('expect(Venusaur).not.be.equal(null);', () => {
-        expect(Venusaur).not.be.equal(null);
-      });
-      it('expect(Charizard).not.be.equal(null);', () => {
-        expect(Charizard).not.be.equal(null);
-      });
-      it('expect(Blastoise).not.be.equal(null);', () => {
-        expect(Blastoise).not.be.equal(null);
-      });
-      it('expect(Raichu).not.be.equal(null);', () => {
-        expect(Raichu).not.be.equal(null);
-      });
+describe('Pruebas del ejercicio de clase', () => {
+  const persona1 = new Persona("ACOIDAN", "MESA HERNANDEZ", "21.10.2000", "Hombre");
+  describe('Funcionan los getters', () => {
+    it('expect(persona1.getNombre()).to.be.equal("ACOIDAN");', () => {
+      expect(persona1.getNombre()).to.be.equal("ACOIDAN");
     });
+    it('expect(persona1.getApellidos()).to.be.equal("MESA HERNANDEZ");', () => {
+      expect(persona1.getApellidos()).to.be.equal("MESA HERNANDEZ");
+    });
+    it('expect(persona1.getNacimiento()).to.be.equal("21.10.2000");', () => {
+      expect(persona1.getNacimiento()).to.be.equal("21.10.2000");
+    });
+    it('expect(persona1.getGenero()).to.be.equal("Hombre");', () => {
+      expect(persona1.getGenero()).to.be.equal("Hombre");
+    });
+  });
+});
