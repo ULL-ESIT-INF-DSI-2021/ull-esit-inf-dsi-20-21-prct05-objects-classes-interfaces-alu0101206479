@@ -67,5 +67,14 @@ describe('Pruebas del Ejercicio 1 - Pokedex', () => {
         expect(combate1).not.be.equal(null);
       });
     });
+
+    describe('Funciona la funcion dañoPokemon(pokemonAtacante)', () => {
+      it('expect(Math.trunc(combate1.dañoPokemon(1))).to.be.equal(26);', () => {
+        expect(Math.trunc(combate1.dañoPokemon(1))).to.be.equal(26);
+      });
+      it('expect(Math.trunc(combate1.dañoPokemon(2))).to.be.equal(101);', () => {
+        expect(Math.trunc(combate1.dañoPokemon(2))).to.be.equal(101);
+      });
+    });
   });
 });
