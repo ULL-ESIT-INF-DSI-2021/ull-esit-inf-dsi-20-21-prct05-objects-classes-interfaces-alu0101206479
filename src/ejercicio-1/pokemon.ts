@@ -40,4 +40,8 @@ export class Pokemon {
   public getEstadisticasBasicas() {
     return this.estadisticasBasicas;
   }
+
+  public setHP(hp: number) {
+    this.estadisticasBasicas.hp = hp;
+  }
 }
