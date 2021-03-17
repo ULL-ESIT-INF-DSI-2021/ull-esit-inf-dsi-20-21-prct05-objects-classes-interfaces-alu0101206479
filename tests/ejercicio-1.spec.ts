@@ -1,7 +1,7 @@
 import 'mocha';
 import {expect} from 'chai';
 import {Pokemon} from '../src/ejercicio-1/pokemon';
-
+import {Combat} from '../src/ejercicio-1/combat';
 
 describe('Pruebas del Ejercicio 1 - Pokedex', () => {
   const Venusaur = new Pokemon("Venusaur", 100, 2.0, "Planta", [82, 83, 80, 80]);
@@ -57,6 +57,15 @@ describe('Pruebas del Ejercicio 1 - Pokedex', () => {
         expect(Venusaur.getEstadisticasBasicas().hp).to.be.equal(15);
       });
       Venusaur.setHP(80);
+    });
+  });
+
+  const combate1 = new Combat(Venusaur, Charizard);
+  describe('Clase Combat', () => {
+    describe('Se puede instanciar un objeto Combat', () => {
+      it('expect(combate1).not.be.equal(null);', () => {
+        expect(combate1).not.be.equal(null);
+      });
     });
   });
 });
