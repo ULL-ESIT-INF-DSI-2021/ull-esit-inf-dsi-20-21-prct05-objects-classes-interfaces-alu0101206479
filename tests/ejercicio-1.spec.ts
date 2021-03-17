@@ -76,5 +76,11 @@ describe('Pruebas del Ejercicio 1 - Pokedex', () => {
         expect(Math.trunc(combate.dañoPokemon(2))).to.be.equal(101);
       });
     });
+
+    describe('Funciona la funcion start()', () => {
+      it('combate.start();', () => {
+        combate.start();
+      });
+    });
   });
 });
