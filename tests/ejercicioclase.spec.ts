@@ -2,10 +2,11 @@ import 'mocha';
 import {expect} from 'chai';
 import {Persona} from '../src/ejercicioclase';
 import {Estudiante} from '../src/ejercicioclase';
+import {Profesor} from '../src/ejercicioclase';
 
 describe('Pruebas del ejercicio de clase', () => {
   const persona1 = new Persona("ACOIDAN", "MESA HERNANDEZ", "21.10.2000", "Hombre");
-  describe('Funcionan los getters', () => {
+  describe('Funcionando la clase Persona', () => {
     it('expect(persona1.getNombre()).to.be.equal("ACOIDAN");', () => {
       expect(persona1.getNombre()).to.be.equal("ACOIDAN");
     });
@@ -21,7 +22,7 @@ describe('Pruebas del ejercicio de clase', () => {
   });
 
   const estudiante1 = new Estudiante("ACOIDAN", "MESA HERNANDEZ", "21.10.2000", "Hombre", "alu0101206479@ull.edu.es", "Ingeniería Informática");
-  describe('Funcionan los getters', () => {
+  describe('Funcionando la clase Estudiante', () => {
     it('expect(persona1.getNombre()).to.be.equal("ACOIDAN");', () => {
       expect(estudiante1.getNombre()).to.be.equal("ACOIDAN");
     });
@@ -39,6 +40,28 @@ describe('Pruebas del ejercicio de clase', () => {
     });
     it('expect(estudiante1.getCarrera()).to.be.equal("Ingeniería Informática");', () => {
       expect(estudiante1.getCarrera()).to.be.equal("Ingeniería Informática");
+    });
+  });
+
+  const profesor1 = new Profesor("ACOIDAN", "MESA HERNANDEZ", "21.10.2000", "Hombre", "alu0101206479@ull.edu.es", "Ingeniería Informática");
+  describe('Funcionando la clase Profesor', () => {
+    it('expect(persona1.getNombre()).to.be.equal("ACOIDAN");', () => {
+      expect(profesor1.getNombre()).to.be.equal("ACOIDAN");
+    });
+    it('expect(profesor1.getApellidos()).to.be.equal("MESA HERNANDEZ");', () => {
+      expect(profesor1.getApellidos()).to.be.equal("MESA HERNANDEZ");
+    });
+    it('expect(profesor1.getNacimiento()).to.be.equal("21.10.2000");', () => {
+      expect(profesor1.getNacimiento()).to.be.equal("21.10.2000");
+    });
+    it('expect(profesor1.getGenero()).to.be.equal("Hombre");', () => {
+      expect(profesor1.getGenero()).to.be.equal("Hombre");
+    });
+    it('expect(profesor1.getCorreo()).to.be.equal("alu0101206479@ull.edu.es");', () => {
+      expect(profesor1.getCorreo()).to.be.equal("alu0101206479@ull.edu.es");
+    });
+    it('expect(profesor1.getDepartamento()).to.be.equal("Ingeniería Informática");', () => {
+      expect(profesor1.getDepartamento()).to.be.equal("Ingeniería Informática");
     });
   });
 });
