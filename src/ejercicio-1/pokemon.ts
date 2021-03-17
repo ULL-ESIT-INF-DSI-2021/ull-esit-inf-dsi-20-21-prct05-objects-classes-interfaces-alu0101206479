@@ -20,4 +20,24 @@ export class Pokemon {
     this.estadisticasBasicas.velocidad = estadisticasBasicas[2];
     this.estadisticasBasicas.hp = estadisticasBasicas[3];
   }
+
+  public getNombre() {
+    return this.nombre;
+  }
+
+  public getPeso() {
+    return this.peso;
+  }
+
+  public getAltura() {
+    return this.altura;
+  }
+
+  public getTipo() {
+    return this.tipo;
+  }
+
+  public getEstadisticasBasicas() {
+    return this.estadisticasBasicas;
+  }
 }
