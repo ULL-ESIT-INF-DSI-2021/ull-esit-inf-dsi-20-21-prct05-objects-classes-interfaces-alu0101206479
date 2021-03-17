@@ -1,6 +1,7 @@
 import 'mocha';
 import {expect} from 'chai';
 import {Articulo} from '../src/ejercicio-2/articulo';
+import {GestorBibliografico} from '../src/ejercicio-2/gestorbibliografico';
 
 describe('Pruebas del Ejercicio 2 - Gestor Bibliográfico', () => {
   const articulo1 = new Articulo("Lionel Messi se lesiono", ["ACOIDAN MESA HERNANDEZ"], ["alu0101206479@ull.edu.es"], ["Messi", "Lesionado"], "Messi se ha lesionado en el partido contra el Real Madrid", "21.10.2000", "MiCasa", 3);
@@ -18,35 +19,44 @@ describe('Pruebas del Ejercicio 2 - Gestor Bibliográfico', () => {
         expect(articulo3).not.be.equal(null);
       });
     });
+
+    describe('Funcionan los getters', () => {
+      it('expect(articulo1.getTitulo()).to.be.equal("Lionel Messi se lesiono");', () => {
+        expect(articulo1.getTitulo()).to.be.equal("Lionel Messi se lesiono");
+      });
+      it('expect(articulo1.getAutor()).to.be.equal(["ACOIDAN MESA HERNANDEZ"]);', () => {
+        expect(articulo1.getAutor()).to.deep.equal(["ACOIDAN MESA HERNANDEZ"]);
+      });
+      it('expect(articulo1.getEmailAutor()).to.be.equal(["alu0101206479@ull.edu.es");', () => {
+        expect(articulo1.getEmailAutor()).to.deep.equal(["alu0101206479@ull.edu.es"]);
+      });
+      it('expect(articulo1.getKeywords()).to.deep.equal(["Messi", "Lesionado"]);', () => {
+        expect(articulo1.getKeywords()).to.deep.equal(["Messi", "Lesionado"]);
+      });
+      it('expect(articulo1.getResumen()).to.be.equal("Messi se ha lesionado en el partido contra el Real Madrid");', () => {
+        expect(articulo1.getResumen()).to.be.equal("Messi se ha lesionado en el partido contra el Real Madrid");
+      });
+      it('expect(articulo1.getFechaPublicacion()).to.be.equal("21.10.2000");', () => {
+        expect(articulo1.getFechaPublicacion()).to.be.equal("21.10.2000");
+      });
+      it('expect(articulo1.getEditorial()).to.be.equal("MiCasa");', () => {
+        expect(articulo1.getEditorial()).to.be.equal("MiCasa");
+      });
+    });
+
+    describe('Funciona la función de referencia de artículo en formato APA', () => {
+      it(`expect(articulo2.referencia()).to.be.equal('ACOIDAN MESA HERNANDEZ y JORGE GARCIA BORGES. (21.11.2001) "Cristiano Ronaldo se lesiono", MiCasa);`, () => {
+        expect(articulo2.referencia()).to.be.equal('ACOIDAN MESA HERNANDEZ y JORGE GARCIA BORGES. (21.11.2001) "Cristiano Ronaldo se lesiono", MiCasa');
+      });
+    });
   });
 
-  describe('Funcionan los getters', () => {
-    it('expect(articulo1.getTitulo()).to.be.equal("Lionel Messi se lesiono");', () => {
-      expect(articulo1.getTitulo()).to.be.equal("Lionel Messi se lesiono");
-    });
-    it('expect(articulo1.getAutor()).to.be.equal(["ACOIDAN MESA HERNANDEZ"]);', () => {
-      expect(articulo1.getAutor()).to.deep.equal(["ACOIDAN MESA HERNANDEZ"]);
-    });
-    it('expect(articulo1.getEmailAutor()).to.be.equal(["alu0101206479@ull.edu.es");', () => {
-      expect(articulo1.getEmailAutor()).to.deep.equal(["alu0101206479@ull.edu.es"]);
-    });
-    it('expect(articulo1.getKeywords()).to.deep.equal(["Messi", "Lesionado"]);', () => {
-      expect(articulo1.getKeywords()).to.deep.equal(["Messi", "Lesionado"]);
-    });
-    it('expect(articulo1.getResumen()).to.be.equal("Messi se ha lesionado en el partido contra el Real Madrid");', () => {
-      expect(articulo1.getResumen()).to.be.equal("Messi se ha lesionado en el partido contra el Real Madrid");
-    });
-    it('expect(articulo1.getFechaPublicacion()).to.be.equal("21.10.2000");', () => {
-      expect(articulo1.getFechaPublicacion()).to.be.equal("21.10.2000");
-    });
-    it('expect(articulo1.getEditorial()).to.be.equal("MiCasa");', () => {
-      expect(articulo1.getEditorial()).to.be.equal("MiCasa");
-    });
-  });
-
-  describe('Funciona la función de referencia de artículo en formato APA', () => {
-    it(`expect(articulo2.referencia()).to.be.equal('ACOIDAN MESA HERNANDEZ y JORGE GARCIA BORGES. (21.11.2001) "Cristiano Ronaldo se lesiono", MiCasa);`, () => {
-      expect(articulo2.referencia()).to.be.equal('ACOIDAN MESA HERNANDEZ y JORGE GARCIA BORGES. (21.11.2001) "Cristiano Ronaldo se lesiono", MiCasa');
+  describe('Clase GestorBibliografico', () => {
+    const gestor = new GestorBibliografico([articulo1, articulo2, articulo3]);
+    describe('Se puede instanciar un gestor bibliográfico', () => {
+      it('expect(gestor).not.be.equal(null);', () => {
+        expect(gestor).not.be.equal(null);
+      });
     });
   });
 });
