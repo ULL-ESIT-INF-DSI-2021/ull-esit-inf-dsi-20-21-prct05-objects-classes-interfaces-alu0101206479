@@ -3,6 +3,7 @@ import {expect} from 'chai';
 import {Persona} from '../src/ejercicioclase';
 import {Estudiante} from '../src/ejercicioclase';
 import {Profesor} from '../src/ejercicioclase';
+import {Asignatura} from '../src/ejercicioclase';
 
 describe('Pruebas del ejercicio de clase', () => {
   const persona1 = new Persona("ACOIDAN", "MESA HERNANDEZ", "21.10.2000", "Hombre");
@@ -22,6 +23,7 @@ describe('Pruebas del ejercicio de clase', () => {
   });
 
   const estudiante1 = new Estudiante("ACOIDAN", "MESA HERNANDEZ", "21.10.2000", "Hombre", "alu0101206479@ull.edu.es", "Ingeniería Informática");
+  const estudiante2 = new Estudiante("JORGE", "GARCIA BORGES", "18.12.2000", "Hombre", "alu0101207489@ull.edu.es", "INEF");
   describe('Funcionando la clase Estudiante', () => {
     it('expect(persona1.getNombre()).to.be.equal("ACOIDAN");', () => {
       expect(estudiante1.getNombre()).to.be.equal("ACOIDAN");
@@ -44,6 +46,7 @@ describe('Pruebas del ejercicio de clase', () => {
   });
 
   const profesor1 = new Profesor("ACOIDAN", "MESA HERNANDEZ", "21.10.2000", "Hombre", "alu0101206479@ull.edu.es", "Ingeniería Informática");
+  const profesor2 = new Profesor("JORGE", "GARCIA BORGES", "18.12.2000", "Hombre", "alu0101207489@ull.edu.es", "INEF");
   describe('Funcionando la clase Profesor', () => {
     it('expect(persona1.getNombre()).to.be.equal("ACOIDAN");', () => {
       expect(profesor1.getNombre()).to.be.equal("ACOIDAN");
@@ -62,6 +65,19 @@ describe('Pruebas del ejercicio de clase', () => {
     });
     it('expect(profesor1.getDepartamento()).to.be.equal("Ingeniería Informática");', () => {
       expect(profesor1.getDepartamento()).to.be.equal("Ingeniería Informática");
+    });
+  });
+
+  const asignatura = new Asignatura("Desarrollo de Sistemas Informáticos", [profesor1, profesor2], [estudiante1, estudiante2]);
+  describe('Funcionando la clase Asignatura', () => {
+    it('expect(asignatura.getNombre()).to.be.equal("Desarrollo de Sistemas Informáticos";', () => {
+      expect(asignatura.getNombre()).to.be.equal("Desarrollo de Sistemas Informáticos");
+    });
+    it('expect(asignatura.getProfesores()).to.be.equal("Desarrollo de Sistemas Informáticos";', () => {
+      expect(asignatura.getProfesores()).to.deep.equal([profesor1, profesor2]);
+    });
+    it('expect(asignatura.getEstudiantes()).to.be.equal("Desarrollo de Sistemas Informáticos";', () => {
+      expect(asignatura.getEstudiantes()).to.deep.equal([estudiante1, estudiante2]);
     });
   });
 });
