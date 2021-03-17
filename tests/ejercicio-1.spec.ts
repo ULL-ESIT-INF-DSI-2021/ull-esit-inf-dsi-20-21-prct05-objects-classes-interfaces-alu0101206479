@@ -60,20 +60,20 @@ describe('Pruebas del Ejercicio 1 - Pokedex', () => {
     });
   });
 
-  const combate1 = new Combat(Venusaur, Charizard);
+  const combate = new Combat(Venusaur, Charizard);
   describe('Clase Combat', () => {
     describe('Se puede instanciar un objeto Combat', () => {
-      it('expect(combate1).not.be.equal(null);', () => {
-        expect(combate1).not.be.equal(null);
+      it('expect(combate).not.be.equal(null);', () => {
+        expect(combate).not.be.equal(null);
       });
     });
 
     describe('Funciona la funcion dañoPokemon(pokemonAtacante)', () => {
-      it('expect(Math.trunc(combate1.dañoPokemon(1))).to.be.equal(26);', () => {
-        expect(Math.trunc(combate1.dañoPokemon(1))).to.be.equal(26);
+      it('expect(Math.trunc(combate.dañoPokemon(1))).to.be.equal(26);', () => {
+        expect(Math.trunc(combate.dañoPokemon(1))).to.be.equal(26);
       });
-      it('expect(Math.trunc(combate1.dañoPokemon(2))).to.be.equal(101);', () => {
-        expect(Math.trunc(combate1.dañoPokemon(2))).to.be.equal(101);
+      it('expect(Math.trunc(combate.dañoPokemon(2))).to.be.equal(101);', () => {
+        expect(Math.trunc(combate.dañoPokemon(2))).to.be.equal(101);
       });
     });
   });
