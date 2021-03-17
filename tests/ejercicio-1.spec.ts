@@ -50,5 +50,13 @@ describe('Pruebas del Ejercicio 1 - Pokedex', () => {
         expect(Venusaur.getEstadisticasBasicas().hp).to.be.equal(80);
       });
     });
+
+    describe('Funcionan el setHP', () => {
+      it('expect(expect(Venusaur.getEstadisticasBasicas().hp).to.be.equal(15);', () => {
+        Venusaur.setHP(15);
+        expect(Venusaur.getEstadisticasBasicas().hp).to.be.equal(15);
+      });
+      Venusaur.setHP(80);
+    });
   });
 });
