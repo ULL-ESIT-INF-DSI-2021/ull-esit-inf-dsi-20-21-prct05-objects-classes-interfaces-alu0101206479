@@ -30,3 +30,26 @@ export class Persona {
     this.genero = genero;
   }
 }
+
+
+export class Estudiante extends Persona {
+  constructor(nombre: string, apellidos: string, fechaNacimiento: string, genero: string, private correoInstitucional: string, private carrera: string) {
+    super(nombre, apellidos, fechaNacimiento, genero);
+  }
+
+  public getCorreo() {
+    return this.correoInstitucional;
+  }
+
+  public setCorreo(correoInstitucional: string) {
+    this.correoInstitucional = correoInstitucional;
+  }
+
+  public getCarrera() {
+    return this.carrera;
+  }
+
+  public setCarrera(carrera: string) {
+    this.carrera = carrera;
+  }
+}
