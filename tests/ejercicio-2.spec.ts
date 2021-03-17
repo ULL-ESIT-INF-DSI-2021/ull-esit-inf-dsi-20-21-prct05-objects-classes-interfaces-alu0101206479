@@ -58,5 +58,11 @@ describe('Pruebas del Ejercicio 2 - Gestor Bibliográfico', () => {
         expect(gestor).not.be.equal(null);
       });
     });
+
+    describe('Funcionando el get del gestor', () => {
+      it('expect(gestor.getArticulos).to.deep.equal([articulo1, articulo2, articulo3]);', () => {
+        expect(gestor.getArticulos()).to.deep.equal([articulo1, articulo2, articulo3]);
+      });
+    });
   });
 });
