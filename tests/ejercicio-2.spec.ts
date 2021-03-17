@@ -19,4 +19,31 @@ describe('Pruebas del Ejercicio 2 - Gestor Bibliográfico', () => {
       });
     });
   });
+
+  describe('Funcionan los getters de artículo', () => {
+    it('expect(articulo1.getTitulo()).to.be.equal("Lionel Messi se lesiono");', () => {
+      expect(articulo1.getTitulo()).to.be.equal("Lionel Messi se lesiono");
+    });
+    it('expect(articulo1.getAutor()).to.be.equal("ACOIDAN MESA HERNANDEZ");', () => {
+      expect(articulo1.getAutor()).to.be.equal("ACOIDAN MESA HERNANDEZ");
+    });
+    it('expect(articulo1.getEmailAutor()).to.be.equal("alu0101206479@ull.edu.es");', () => {
+      expect(articulo1.getEmailAutor()).to.be.equal("alu0101206479@ull.edu.es");
+    });
+    it('expect(articulo1.getKeywords()).to.deep.equal(["Messi", "Lesionado"]);', () => {
+      expect(articulo1.getKeywords()).to.deep.equal(["Messi", "Lesionado"]);
+    });
+    it('expect(articulo1.getResumen()).to.be.equal("Messi se ha lesionado en el partido contra el Real Madrid");', () => {
+      expect(articulo1.getResumen()).to.be.equal("Messi se ha lesionado en el partido contra el Real Madrid");
+    });
+    it('expect(articulo1.getFechaPublicacion()).to.be.equal("21.10.2000");', () => {
+      expect(articulo1.getFechaPublicacion()).to.be.equal("21.10.2000");
+    });
+    it('expect(articulo1.getEditorial()).to.be.equal("MiCasa");', () => {
+      expect(articulo1.getEditorial()).to.be.equal("MiCasa");
+    });
+    it('expect(expect(Venusaur.getEstadisticasBasicas().hp).to.be.equal(80);', () => {
+      expect(articulo1.getNumeroCitas()).to.be.equal(3);
+    });
+  });
 });
