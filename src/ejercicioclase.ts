@@ -71,7 +71,13 @@ export class Persona {
   }
 }
 
-
+/**
+ * ```typescript
+ * // Ejemplo de creación
+ *  const estudiante1 = new Estudiante("ACOIDAN", "MESA HERNANDEZ", "21.10.2000", "Hombre", "alu0101206479@ull.edu.es", "Ingeniería Informática");
+ * ```
+ * Clase que representa a estudiantes
+ */
 export class Estudiante extends Persona {
   constructor(nombre: string, apellidos: string, fechaNacimiento: string, genero: string, private correoInstitucional: string, private carrera: string) {
     super(nombre, apellidos, fechaNacimiento, genero);
@@ -110,6 +116,13 @@ export class Estudiante extends Persona {
   }
 }
 
+/**
+ * ```typescript
+ * // Ejemplo de creación
+ *  const profesor1 = new Profesor("ACOIDAN", "MESA HERNANDEZ", "21.10.2000", "Hombre", "alu0101206479@ull.edu.es", "Ingeniería Informática");
+ * ```
+ * Clase que representa a los profesores
+ */
 export class Profesor extends Persona {
   constructor(nombre: string, apellidos: string, fechaNacimiento: string, genero: string, private correoInstitucional: string, private departamento: string) {
     super(nombre, apellidos, fechaNacimiento, genero);
@@ -148,6 +161,13 @@ export class Profesor extends Persona {
   }
 }
 
+/**
+ * ```typescript
+ * // Ejemplo de creación
+ *  const asignatura = new Asignatura("Desarrollo de Sistemas Informáticos", [profesor1, profesor2], [estudiante1, estudiante2]);
+ * ```
+ * Clase que representa a las asignaturas
+ */
 export class Asignatura {
   constructor(private nombre: string, private profesores: Profesor[], private estudiantes: Estudiante[]) {}
 
@@ -168,6 +188,14 @@ export class Asignatura {
     this.nombre = nombre;
   }
 
+  /**
+   * ```typescript
+   * // Ejemplo de llamada
+   *  asignatura1.getProfesores();
+   * ```
+   * Función que a través de un forEach devuelve un listado de los profesores
+   * @return El atributo profesores
+   */
   public getProfesores() {
     return this.profesores;
   }
