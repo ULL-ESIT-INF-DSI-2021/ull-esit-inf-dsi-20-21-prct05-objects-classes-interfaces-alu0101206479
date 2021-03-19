@@ -64,5 +64,17 @@ describe('Pruebas del Ejercicio 2 - Gestor Bibliográfico', () => {
         expect(gestor.getArticulos()).to.deep.equal([articulo1, articulo2, articulo3]);
       });
     });
+
+    describe('Funcionando la muestra de la tabla de artículos', () => {
+      gestor.mostrarArticulos();
+    });
+
+    describe('Funcionando la búsqueda de artículos', () => {
+      console.log("\n\nBusqueda de artículos publicados el 21.10.2000\n");
+      expect(gestor.busqueda(undefined, "21.10.2000", undefined, undefined)).to.deep.equal([articulo1, articulo3]);
+
+      console.log("\n\nBusqueda de artículos publicados el 21.10.2000 por JORGE GARCIA BORGES\n");
+      expect(gestor.busqueda(undefined, "21.10.2000", undefined, ["JORGE GARCIA BORGES"])).to.deep.equal([articulo3]);
+    });
   });
 });
