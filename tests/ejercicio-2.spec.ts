@@ -71,10 +71,10 @@ describe('Pruebas del Ejercicio 2 - Gestor Bibliográfico', () => {
 
     describe('Funcionando la búsqueda de artículos', () => {
       console.log("\n\nBusqueda de artículos publicados el 21.10.2000\n");
-      expect(gestor.busqueda(undefined, "21.10.2000", undefined, undefined)).to.deep.equal([articulo1, articulo3]);
+      expect(gestor.busqueda(undefined, "21.10.2000", undefined, undefined)).to.be.equal(`${articulo1.referencia()}\n${articulo3.referencia()}\n`);
 
       console.log("\n\nBusqueda de artículos publicados el 21.10.2000 por JORGE GARCIA BORGES\n");
-      expect(gestor.busqueda(undefined, "21.10.2000", undefined, ["JORGE GARCIA BORGES"])).to.deep.equal([articulo3]);
+      expect(gestor.busqueda(undefined, "21.10.2000", undefined, ["JORGE GARCIA BORGES"])).to.be.equal(`${articulo3.referencia()}\n`);
     });
   });
 });

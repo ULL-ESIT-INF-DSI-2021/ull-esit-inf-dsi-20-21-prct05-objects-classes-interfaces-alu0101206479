@@ -13,6 +13,7 @@ export class GestorBibliografico {
 
   public busqueda(palabraClave?: string[], fechaPublicacion?: string, editorial?: string, nombreAutor?: string[]) {
     const salida: Articulo[] = [];
+    let apa: string = "";
     let i: number = 0;
     let parametrosAcertados: number = 0;
     let parametrosIntroducidos: number = 0;
@@ -67,11 +68,12 @@ export class GestorBibliografico {
       }
 
       if (parametrosAcertados == parametrosIntroducidos) {
+        apa = apa + `${articulo.referencia()}\n`;
         salida.push(articulo);
       }
     });
 
     console.table(salida);
-    return salida;
+    return apa;
   }
 }
