@@ -1,6 +1,7 @@
 import 'mocha';
 import {expect} from 'chai';
 import {Pokemon} from '../src/ejercicio-1/pokemon';
+import {Pokedex} from '../src/ejercicio-1/pokedex';
 import {Combat} from '../src/ejercicio-1/combat';
 
 describe('Pruebas del Ejercicio 1 - Pokedex', () => {
@@ -24,18 +25,28 @@ describe('Pruebas del Ejercicio 1 - Pokedex', () => {
       });
     });
 
-    describe('Funcionan los getters', () => {
+    describe('Funcionan los getters y setters', () => {
       it('expect(Venusaur.getNombre()).to.be.equal("Venusaur");', () => {
         expect(Venusaur.getNombre()).to.be.equal("Venusaur");
       });
       it('expect(Venusaur.getPeso()).to.be.equal(100);', () => {
         expect(Venusaur.getPeso()).to.be.equal(100);
       });
+      it('Venusaur.setPeso(50);', () => {
+        Venusaur.setPeso(50);
+        expect(Venusaur.getPeso()).to.be.equal(50);
+        Venusaur.setPeso(100);
+      });
       it('expect(Venusaur.getAltura()).to.be.equal(2);', () => {
         expect(Venusaur.getAltura()).to.be.equal(2);
       });
       it('expect(Venusaur.getTipo()).to.be.equal("Planta");', () => {
         expect(Venusaur.getTipo()).to.be.equal("Planta");
+      });
+      it('Venusaur.setTipo("Fuego");', () => {
+        Venusaur.setTipo("Fuego");
+        expect(Venusaur.getTipo()).to.be.equal("Fuego");
+        Venusaur.setTipo("Planta");
       });
       it('expect(expect(Venusaur.getEstadisticasBasicas().ataque).to.be.equal(82);', () => {
         expect(Venusaur.getEstadisticasBasicas().ataque).to.be.equal(82);
@@ -60,6 +71,50 @@ describe('Pruebas del Ejercicio 1 - Pokedex', () => {
     });
   });
 
+  const pokedex = new Pokedex([Venusaur, Charizard, Blastoise]);
+  describe('Clase Pokedex', () => {
+    describe('Se puede instanciar un objeto Pokedex', () => {
+      it('expect(pokedex).not.be.equal(null);', () => {
+        expect(pokedex).not.be.equal(null);
+      });
+    });
+
+    describe('Funciona el get de el contenido de la pokedex', () => {
+      it('expect(pokedex.getPokemons()).to.be.equal([Venusaur, Charizard, Blastoise]);', () => {
+        expect(pokedex.getPokemons()).to.deep.equal([Venusaur, Charizard, Blastoise]);
+      });
+    });
+
+    describe('Se muestra la pokedex en forma de tabla', () => {
+      it('pokedex.mostrarPokemons();', () => {
+        console.log("Pokedex\n");
+        pokedex.mostrarPokemons();
+      });
+    });
+
+    describe('Funciona añadir, quitar y editar un atributo', () => {
+      it('pokedex.añadirPokemons(Raichu);', () => {
+        pokedex.añadirPokemons(Raichu);
+        expect(pokedex.getPokemons()).to.deep.equal([Venusaur, Charizard, Blastoise, Raichu]);
+      });
+
+      it('pokedex.quitarPokemons(Charizard);', () => {
+        pokedex.quitarPokemons(Charizard);
+        expect(pokedex.getPokemons()).to.deep.equal([Venusaur, Blastoise, Raichu]);
+      });
+
+      it('pokedex.setPokemon(Raichu, "nombre", "Pikachu");', () => {
+        pokedex.setPokemon(Raichu, "nombre", "Pikachu");
+        expect(pokedex.getPokemons()[2].getNombre()).to.be.equal("Pikachu");
+      });
+
+      it('pokedex.setPokemon(Raichu, "ataque", 50);', () => {
+        pokedex.setPokemon(Raichu, "ataque", 50);
+        expect(pokedex.getPokemons()[2].getEstadisticasBasicas().ataque).to.be.equal(50);
+      });
+    });
+  });
+
   const combate = new Combat(Venusaur, Charizard);
   describe('Clase Combat', () => {
     describe('Se puede instanciar un objeto Combat', () => {
@@ -79,6 +134,7 @@ describe('Pruebas del Ejercicio 1 - Pokedex', () => {
 
     describe('Funciona la funcion start()', () => {
       it('combate.start();', () => {
+        console.log("Simulación del combate\n\n");
         combate.start();
       });
     });

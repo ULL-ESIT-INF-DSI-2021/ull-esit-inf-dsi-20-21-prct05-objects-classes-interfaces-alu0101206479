@@ -25,20 +25,48 @@ export class Pokemon {
     return this.nombre;
   }
 
+  public setNombre(nombre: string) {
+    this.nombre = nombre;
+  }
+
   public getPeso() {
     return this.peso;
+  }
+
+  public setPeso(peso: number) {
+    this.peso = peso;
   }
 
   public getAltura() {
     return this.altura;
   }
 
+  public setAltura(altura: number) {
+    this.altura = altura;
+  }
+
   public getTipo() {
     return this.tipo;
   }
 
+  public setTipo(tipo: string) {
+    this.tipo = tipo;
+  }
+
   public getEstadisticasBasicas() {
     return this.estadisticasBasicas;
+  }
+
+  public setAtaque(ataque: number) {
+    this.estadisticasBasicas.ataque = ataque;
+  }
+
+  public setDefensa(defensa: number) {
+    this.estadisticasBasicas.defensa = defensa;
+  }
+
+  public setVelocidad(velocidad: number) {
+    this.estadisticasBasicas.velocidad = velocidad;
   }
 
   public setHP(hp: number) {

@@ -66,15 +66,32 @@ describe('Pruebas del Ejercicio 2 - Gestor Bibliográfico', () => {
     });
 
     describe('Funcionando la muestra de la tabla de artículos', () => {
-      gestor.mostrarArticulos();
+      it('gestor.mostrarArticulos();', () => {
+        console.log("Artículos\n\n");
+        gestor.mostrarArticulos();
+      });
     });
 
     describe('Funcionando la búsqueda de artículos', () => {
-      console.log("\n\nBusqueda de artículos publicados el 21.10.2000\n");
-      expect(gestor.busqueda(undefined, "21.10.2000", undefined, undefined)).to.be.equal(`${articulo1.referencia()}\n${articulo3.referencia()}\n`);
+      it('expect(gestor.busqueda(undefined, "21.10.2000", undefined, undefined)).to.be.equal(`${articulo1.referencia()}\n${articulo3.referencia()}\n`);', () => {
+        console.log("Artículos publicados el 21.10.2000\n\n");
+        expect(gestor.busqueda(undefined, "21.10.2000", undefined, undefined)).to.be.equal(`${articulo1.referencia()}\n${articulo3.referencia()}\n`);
+      });
 
-      console.log("\n\nBusqueda de artículos publicados el 21.10.2000 por JORGE GARCIA BORGES\n");
-      expect(gestor.busqueda(undefined, "21.10.2000", undefined, ["JORGE GARCIA BORGES"])).to.be.equal(`${articulo3.referencia()}\n`);
+      it('expect(gestor.busqueda(undefined, "21.10.2000", undefined, ["JORGE GARCIA BORGES"])).to.be.equal(`${articulo3.referencia()}\n`);', () => {
+        console.log("Artículos publicados el 21.10.2000 por JORGE GARCIA BORGES\n\n");
+        expect(gestor.busqueda(undefined, "21.10.2000", undefined, ["JORGE GARCIA BORGES"])).to.be.equal(`${articulo3.referencia()}\n`);
+      });
+
+      it('expect(gestor.busqueda(undefined, "21.10.2000", undefined, ["JORGE GARCIA BORGES"])).to.be.equal(`${articulo3.referencia()}\n`);', () => {
+        console.log("Artículos con la palabra clave 'Lesionado'\n\n");
+        expect(gestor.busqueda(["Cristiano"], undefined, undefined, undefined)).to.be.equal(`${articulo2.referencia()}\n`);
+      });
+
+      it('expect(gestor.busqueda(undefined, undefined, "MiCasa", undefined)).to.be.equal(`${articulo1.referencia()}\n${articulo2.referencia()}\n`);', () => {
+        console.log("Artículos de la editorial MiCasa\n\n");
+        expect(gestor.busqueda(undefined, undefined, "MiCasa", undefined)).to.be.equal(`${articulo1.referencia()}\n${articulo2.referencia()}\n`);
+      });
     });
   });
 });
