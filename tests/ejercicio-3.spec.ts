@@ -7,6 +7,7 @@ import {Tren} from '../src/ejercicio-3/tren';
 import {Guagua} from '../src/ejercicio-3/guagua';
 import {Bicicleta} from '../src/ejercicio-3/bicicleta';
 import {Peaton} from '../src/ejercicio-3/peaton';
+import {Street} from '../src/ejercicio-3/street';
 
 describe('Pruebas del Ejercicio 3 - Medios de transporte', () => {
   const coche = new Coche(92, "Alfa Romeo", 4);
@@ -50,6 +51,54 @@ describe('Pruebas del Ejercicio 3 - Medios de transporte', () => {
       });
       it('expect(peaton.ruedas).to.be.equal(0);', () => {
         expect(peaton.ruedas).to.be.equal(0);
+      });
+    });
+  });
+
+  const calle = new Street("Manuel Machado", "Armeñime", [coche, moto, moto, coche, tren]);
+  describe('Clase Street', () => {
+    describe('Se pueden instanciar calles', () => {
+      it('expect(calle).not.be.equal(null);', () => {
+        expect(calle).not.be.equal(null);
+      });
+    });
+
+    describe('Funcionando los getters y setters', () => {
+      it('expect(calle.getNombre()).to.be.equal("Manuel Machado");', () => {
+        expect(calle.getNombre()).to.be.equal("Manuel Machado");
+      });
+      it('calle.setNombre("Venenchegue");', () => {
+        calle.setNombre("Venenchegue");
+        expect(calle.getNombre()).to.be.equal("Venenchegue");
+      });
+      it('expect(calle.getLocalizacion()).to.be.equal("Armeñime");', () => {
+        expect(calle.getLocalizacion()).to.deep.equal("Armeñime");
+      });
+      it('calle.setLocalizacion("Adeje");', () => {
+        calle.setLocalizacion("Adeje");
+        expect(calle.getLocalizacion()).to.deep.equal("Adeje");
+      });
+      it('expect(calle.getVehiculos()).to.be.equal([coche, moto, moto, coche, tren]);', () => {
+        expect(calle.getVehiculos()).to.deep.equal([coche, moto, moto, coche, tren]);
+      });
+    });
+
+    describe('Se debe poder mostrar la cantidad de vehículos de cada tipo circulando', () => {
+      it('expect(coche.velocidad).to.be.equal(92);', () => {
+        console.log(`Cantidad de vehículos de cada tipo circulando en la calle:`);
+        calle.cantidadVehiculos();
+      });
+    });
+
+    describe('Se debe poder añadir y quitar vehiculos de la via', () => {
+      it('calle.añadirVehiculo(bicicleta);', () => {
+        calle.añadirVehiculo(bicicleta);
+        expect(calle.getVehiculos()).to.deep.equal([coche, moto, moto, coche, tren, bicicleta]);
+      });
+
+      it('calle.quitarVehiculo(tren);', () => {
+        calle.quitarVehiculo(tren);
+        expect(calle.getVehiculos()).to.deep.equal([coche, moto, moto, coche, bicicleta]);
       });
     });
   });

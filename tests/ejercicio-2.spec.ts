@@ -83,8 +83,8 @@ describe('Pruebas del Ejercicio 2 - Gestor Bibliográfico', () => {
         expect(gestor.busqueda(undefined, "21.10.2000", undefined, ["JORGE GARCIA BORGES"])).to.be.equal(`${articulo3.referencia()}\n`);
       });
 
-      it('expect(gestor.busqueda(undefined, "21.10.2000", undefined, ["JORGE GARCIA BORGES"])).to.be.equal(`${articulo3.referencia()}\n`);', () => {
-        console.log("Artículos con la palabra clave 'Lesionado'\n\n");
+      it('expect(gestor.busqueda(["Cristiano"], undefined, undefined, undefined)).to.be.equal(`${articulo2.referencia()}\n`);', () => {
+        console.log("Artículos con la palabra clave 'Cristiano'\n\n");
         expect(gestor.busqueda(["Cristiano"], undefined, undefined, undefined)).to.be.equal(`${articulo2.referencia()}\n`);
       });
 
