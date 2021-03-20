@@ -10,8 +10,8 @@ import {Peaton} from '../src/ejercicio-3/peaton';
 import {Street} from '../src/ejercicio-3/street';
 
 describe('Pruebas del Ejercicio 3 - Medios de transporte', () => {
-  const coche = new Coche(92, "Alfa Romeo", 4);
-  const moto = new Moto(43, "Yamaha", 2);
+  const coche1 = new Coche(92, "Alfa Romeo", 4);
+  const moto1 = new Moto(43, "Yamaha", 2);
   const patinete = new Patinete(23, "QUEENS", 2);
   const tren = new Tren(35, "MFTRAIN", 24);
   const guagua = new Guagua(20, "Titsa", 8);
@@ -20,10 +20,10 @@ describe('Pruebas del Ejercicio 3 - Medios de transporte', () => {
   describe('Clase Vehículo (Coche, Moto...)', () => {
     describe('Se pueden instanciar vehículos', () => {
       it('expect(coche).not.be.equal(null);', () => {
-        expect(coche).not.be.equal(null);
+        expect(coche1).not.be.equal(null);
       });
       it('expect(moto.not.be.equal(null);', () => {
-        expect(moto).not.be.equal(null);
+        expect(moto1).not.be.equal(null);
       });
       it('expect(patinete).not.be.equal(null);', () => {
         expect(patinete).not.be.equal(null);
@@ -44,7 +44,7 @@ describe('Pruebas del Ejercicio 3 - Medios de transporte', () => {
 
     describe('Funcionando los getters', () => {
       it('expect(coche.velocidad).to.be.equal(92);', () => {
-        expect(coche.velocidad).to.be.equal(92);
+        expect(coche1.velocidad).to.be.equal(92);
       });
       it('expect(tren.tipo).to.be.equal("MFTRAIN");', () => {
         expect(tren.tipo).to.be.equal("MFTRAIN");
@@ -55,7 +55,9 @@ describe('Pruebas del Ejercicio 3 - Medios de transporte', () => {
     });
   });
 
-  const calle = new Street("Manuel Machado", "Armeñime", [coche, moto, moto, coche, tren]);
+  const coche2 = new Coche(87, "Peudgeot", 4);
+  const moto2 = new Moto(32, "Honda", 2);
+  const calle = new Street("Manuel Machado", "Armeñime", [coche1, moto1, moto2, coche2, tren]);
   describe('Clase Street', () => {
     describe('Se pueden instanciar calles', () => {
       it('expect(calle).not.be.equal(null);', () => {
@@ -79,7 +81,7 @@ describe('Pruebas del Ejercicio 3 - Medios de transporte', () => {
         expect(calle.getLocalizacion()).to.deep.equal("Adeje");
       });
       it('expect(calle.getVehiculos()).to.be.equal([coche, moto, moto, coche, tren]);', () => {
-        expect(calle.getVehiculos()).to.deep.equal([coche, moto, moto, coche, tren]);
+        expect(calle.getVehiculos()).to.deep.equal([coche1, moto1, moto2, coche2, tren]);
       });
     });
 
@@ -93,12 +95,18 @@ describe('Pruebas del Ejercicio 3 - Medios de transporte', () => {
     describe('Se debe poder añadir y quitar vehiculos de la via', () => {
       it('calle.añadirVehiculo(bicicleta);', () => {
         calle.añadirVehiculo(bicicleta);
-        expect(calle.getVehiculos()).to.deep.equal([coche, moto, moto, coche, tren, bicicleta]);
+        expect(calle.getVehiculos()).to.deep.equal([coche1, moto1, moto2, coche2, tren, bicicleta]);
       });
 
       it('calle.quitarVehiculo(tren);', () => {
-        calle.quitarVehiculo(tren);
-        expect(calle.getVehiculos()).to.deep.equal([coche, moto, moto, coche, bicicleta]);
+        calle.quitarVehiculo(coche2);
+        expect(calle.getVehiculos()).to.deep.equal([coche1, moto1, moto2, tren, bicicleta]);
+      });
+    });
+
+    describe('Se debe mostrar de mayor velocidad a menor los vehiculos que circulan por la via', () => {
+      it('calle.añadirVehiculo(bicicleta);', () => {
+        calle.velocidad();
       });
     });
   });

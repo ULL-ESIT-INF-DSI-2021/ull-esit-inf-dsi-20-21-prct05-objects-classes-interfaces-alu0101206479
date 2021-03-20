@@ -55,4 +55,8 @@ export class Street {
 
     console.table(cantidadVehiculos);
   }
+
+  public velocidad() {
+    console.table(this.vehiculosCirculando.sort(((a, b) => b.velocidad - a.velocidad)));
+  }
 }
