@@ -149,7 +149,7 @@ En este ejercicio deberemos de crear las siguientes clases:
       * `referencia()`: Función que devuelve la referencia del artículo en formato [APA para revista electrónica sin DOI](https://biblioguias.uam.es/citar/estilo_apa). Este formato es el siguiente **Autor o autores, (Fecha de publicación) Título, Editorial**. Esto lo podemos conseguir creando una cadena que va a ser la que se devolverá. En esta vamos introduciendo los autores con un bucle `forEach`, posteriormente la fecha de publicación del artículo, el título y finalmente la editorial.
 
 
-  * Clase GestorBibliotecario: Es la clase que representa un gestor bibliográfico, su código lo podemos observar en el siguiente enlace:
+  * Clase GestorBibliografico: Es la clase que representa un gestor bibliográfico, su código lo podemos observar en el siguiente enlace:
 
       [https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct05-objects-classes-interfaces-alu0101206479/blob/master/src/ejercicio-2/gestorbibliografico.ts](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct05-objects-classes-interfaces-alu0101206479/blob/master/src/ejercicio-2/gestorbibliografico.ts)
       
@@ -316,6 +316,7 @@ Vídeo de ejemplo de instalación y configuración de Mocha y Chai en un proyect
 Repositorio GitHub con el ejemplo de configuración de Mocha y Chai en un proyecto TypeScript | https://github.com/ULL-ESIT-INF-DSI-2021/doc-test
 Tutorial sobre depuración de TypeScript en Visual Studio Code | https://code.visualstudio.com/docs/typescript/typescript-debugging
 Principio SOLID | https://samueleresca.net/solid-principles-using-typescript/
+Código de la práctica | https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct05-objects-classes-interfaces-alu0101206479/tree/master
 Complete Pokémon Pokédex | https://pokemondb.net/pokedex/all
 APA para revista electrónica sin DOI | https://biblioguias.uam.es/citar/estilo_apa
 console.table | https://developer.mozilla.org/es/docs/Web/API/Console/table
