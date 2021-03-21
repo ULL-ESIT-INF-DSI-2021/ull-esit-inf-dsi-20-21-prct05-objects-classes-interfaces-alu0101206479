@@ -1,24 +1,81 @@
 import {Pokemon} from '../ejercicio-1/pokemon';
 
+/**
+ * ```typescript
+ * // Ejemplo de creación
+ *  const combate = new Combat(Venusaur, Charizard);
+ * ```
+ * Clase que representa un comabte Pokemon
+ */
 export class Combat {
+  /**
+   * ```typescript
+   * // Ejemplo de llamada
+   *  const combate = new Combat(Venusaur, Charizard);
+   * ```
+   * Constructor de la clase Combat
+   * @param contrincante1 Pokemon 1 del combate
+   * @param contrincante2 Pokemon 2 del combate
+   */
   constructor(private contrincante1: Pokemon, private contrincante2: Pokemon) {}
 
+  /**
+   * ```typescript
+   * // Ejemplo de llamada
+   *  combate.getContrincante1();
+   * ```
+   * Función que retorna el Pokemon 1 del combate
+   * @return El atributo contrincante1
+   */
   public getContrincante1() {
     return this.contrincante1;
   }
 
+  /**
+   * ```typescript
+   * // Ejemplo de llamada
+   *  combate.setContrincante1(Raichu);
+   * ```
+   * Función para cambiar el atributo contrincante1
+   * @param contrincante1 El nuevo Pokemon 1 del combate
+   */
   public setContricante1(contrincante1: Pokemon) {
     this.contrincante1 = contrincante1;
   }
 
+  /**
+   * ```typescript
+   * // Ejemplo de llamada
+   *  combate.getContrincante2();
+   * ```
+   * Función que retorna el Pokemon 2 del combate
+   * @returns El atributo contrincante2
+   */
   public getContrincante2() {
     return this.contrincante2;
   }
 
+  /**
+   * ```typescript
+   * // Ejemplo de llamada
+   *  combate.setContrincante2(Raichu);
+   * ```
+   * Función para cambiar el atributo contrincante2
+   * @param contrincante2 El nuevo Pokemon 2 del combate
+   */
   public setContricante2(contrincante2: Pokemon) {
     this.contrincante2 = contrincante2;
   }
 
+  /**
+   * ```typescript
+   * // Ejemplo de llamada
+   *  combate.dañoPokemon(1);
+   * ```
+   * Función que calcula el daño que causa un Pokemon a otro
+   * @param pokemonAtacante Un número que indica si ataca el Pokemon 1 o el Pokemon 2
+   * @returns El daño que causa un Pokemon a otro
+   */
   public dañoPokemon(pokemonAtacante: number): number {
     let efectividad: number = 0;
     let daño: number = 0;
@@ -84,6 +141,13 @@ export class Combat {
     return daño;
   }
 
+  /**
+   * ```typescript
+   * // Ejemplo de llamada
+   *  combate.start();
+   * ```
+   * Función que simula el combate Pokemon
+   */
   public start() {
     let i: number = 1;
     let daño: number = 0;
