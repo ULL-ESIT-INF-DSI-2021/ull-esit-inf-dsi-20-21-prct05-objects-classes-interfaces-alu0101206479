@@ -106,11 +106,13 @@ describe('Pruebas del Ejercicio 1 - Pokedex', () => {
       it('pokedex.setPokemon(Raichu, "nombre", "Pikachu");', () => {
         pokedex.setPokemon(Raichu, "nombre", "Pikachu");
         expect(pokedex.getPokemons()[2].getNombre()).to.be.equal("Pikachu");
+        pokedex.setPokemon(Raichu, "nombre", "Raichu");
       });
 
       it('pokedex.setPokemon(Raichu, "ataque", 50);', () => {
         pokedex.setPokemon(Raichu, "ataque", 50);
         expect(pokedex.getPokemons()[2].getEstadisticasBasicas().ataque).to.be.equal(50);
+        pokedex.setPokemon(Raichu, "ataque", 90);
       });
     });
   });
@@ -122,6 +124,26 @@ describe('Pruebas del Ejercicio 1 - Pokedex', () => {
         expect(combate).not.be.equal(null);
       });
     });
+
+    describe('Funcionan los getters y setters', () => {
+      it('expect(combate.getContrincante1()).to.be.equal(Venusaur);', () => {
+        expect(combate.getContrincante1()).to.be.equal(Venusaur);
+      });
+      it('combate.setContricante1(Raichu);', () => {
+        combate.setContricante1(Raichu);
+        expect(combate.getContrincante1()).to.be.equal(Raichu);
+        combate.setContricante1(Venusaur);
+      });
+      it('expect(combate.getContrincante2()).to.be.equal(Charizard);', () => {
+        expect(combate.getContrincante2()).to.be.equal(Charizard);
+      });
+      it('combate.setContricante2(Blastoise);', () => {
+        combate.setContricante2(Blastoise);
+        expect(combate.getContrincante2()).to.be.equal(Blastoise);
+        combate.setContricante2(Charizard);
+      });
+    });
+
 
     describe('Funciona la funcion dañoPokemon(pokemonAtacante)', () => {
       it('expect(Math.trunc(combate.dañoPokemon(1))).to.be.equal(26);', () => {

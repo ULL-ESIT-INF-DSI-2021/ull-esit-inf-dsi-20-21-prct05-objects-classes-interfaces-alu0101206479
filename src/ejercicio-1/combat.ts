@@ -1,11 +1,21 @@
 import {Pokemon} from '../ejercicio-1/pokemon';
 
 export class Combat {
-  private contrincante1: Pokemon;
-  private contrincante2: Pokemon;
+  constructor(private contrincante1: Pokemon, private contrincante2: Pokemon) {}
 
-  constructor(contrincante1: Pokemon, contrincante2: Pokemon) {
+  public getContrincante1() {
+    return this.contrincante1;
+  }
+
+  public setContricante1(contrincante1: Pokemon) {
     this.contrincante1 = contrincante1;
+  }
+
+  public getContrincante2() {
+    return this.contrincante2;
+  }
+
+  public setContricante2(contrincante2: Pokemon) {
     this.contrincante2 = contrincante2;
   }
 

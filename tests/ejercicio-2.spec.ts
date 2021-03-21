@@ -20,11 +20,24 @@ describe('Pruebas del Ejercicio 2 - Gestor Bibliográfico', () => {
       });
     });
 
-    describe('Funcionan los getters', () => {
+    describe('Funcionan los getters y los setters', () => {
       it('expect(articulo1.getTitulo()).to.be.equal("Lionel Messi se lesiono");', () => {
         expect(articulo1.getTitulo()).to.be.equal("Lionel Messi se lesiono");
       });
+      it('articulo1.setTitulo("Lionel Messi, lesionado en el Bernabeu");', () => {
+        articulo1.setTitulo("Lionel Messi, lesionado en el Bernabeu");
+        expect(articulo1.getTitulo()).to.be.equal("Lionel Messi, lesionado en el Bernabeu");
+        articulo1.setTitulo("Lionel Messi se lesiono");
+      });
       it('expect(articulo1.getAutor()).to.be.equal(["ACOIDAN MESA HERNANDEZ"]);', () => {
+        expect(articulo1.getAutor()).to.deep.equal(["ACOIDAN MESA HERNANDEZ"]);
+      });
+      it('articulo1.añadirAutor("DIANA KAREN ALONSO DE MARTIN");', () => {
+        articulo1.añadirAutor("DIANA KAREN ALONSO DE MARTIN");
+        expect(articulo1.getAutor()).to.deep.equal(["ACOIDAN MESA HERNANDEZ", "DIANA KAREN ALONSO DE MARTIN"]);
+      });
+      it('articulo1.añadirAutor("DIANA KAREN ALONSO DE MARTIN");', () => {
+        articulo1.quitarAutor("DIANA KAREN ALONSO DE MARTIN");
         expect(articulo1.getAutor()).to.deep.equal(["ACOIDAN MESA HERNANDEZ"]);
       });
       it('expect(articulo1.getEmailAutor()).to.be.equal(["alu0101206479@ull.edu.es");', () => {
@@ -41,6 +54,11 @@ describe('Pruebas del Ejercicio 2 - Gestor Bibliográfico', () => {
       });
       it('expect(articulo1.getEditorial()).to.be.equal("MiCasa");', () => {
         expect(articulo1.getEditorial()).to.be.equal("MiCasa");
+      });
+      it('articulo1.setEditorial("El País");', () => {
+        articulo1.setEditorial("El País");
+        expect(articulo1.getEditorial()).to.be.equal("El País");
+        articulo1.setEditorial("MiCasa");
       });
     });
 

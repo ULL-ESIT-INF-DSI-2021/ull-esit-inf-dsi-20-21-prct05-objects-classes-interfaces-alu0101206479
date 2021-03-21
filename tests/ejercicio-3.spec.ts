@@ -42,12 +42,17 @@ describe('Pruebas del Ejercicio 3 - Medios de transporte', () => {
       });
     });
 
-    describe('Funcionando los getters', () => {
+    describe('Funcionando los getters y setters', () => {
       it('expect(coche.velocidad).to.be.equal(92);', () => {
         expect(coche1.velocidad).to.be.equal(92);
       });
       it('expect(tren.tipo).to.be.equal("MFTRAIN");', () => {
         expect(tren.tipo).to.be.equal("MFTRAIN");
+      });
+      it('tren.tipo = "KATO";', () => {
+        tren.tipo = "KATO";
+        expect(tren.tipo).to.be.equal("KATO");
+        tren.tipo = "MFTRAIN";
       });
       it('expect(peaton.ruedas).to.be.equal(0);', () => {
         expect(peaton.ruedas).to.be.equal(0);

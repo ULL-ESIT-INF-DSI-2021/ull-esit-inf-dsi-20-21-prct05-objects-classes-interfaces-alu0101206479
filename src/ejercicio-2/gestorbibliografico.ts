@@ -7,6 +7,15 @@ export class GestorBibliografico {
     return this.articulos;
   }
 
+  public añadirArticulos(articulo: Articulo) {
+    this.articulos.push(articulo);
+  }
+
+  public quitarArticulos(articulo: Articulo) {
+    const indice: number = this.articulos.indexOf(articulo);
+    this.articulos.splice(indice, 1);
+  }
+
   public mostrarArticulos() {
     console.table(this.articulos);
   }
